@@ -2,15 +2,28 @@ local M = {}
 
 M.plugins = {
   ["blink.cmp"] = "blink",
+  ["bufferline.nvim"] = "bufferline",
+  ["code-action-menu.nvim"] = "codeactionmenu",
+  ["nvim-cmp"] = "cmp",
   ["nvim-cokeline"] = "cokeline",
+  ["nvim-dap"] = "dap",
   ["flash.nvim"] = "flash",
   ["fzf-lua"] = "fzf",
   ["gitsigns.nvim"] = "gitsigns",
+  ["grug-far.nvim"] = "grug-far",
+  ["hop.nvim"] = "hop",
   ["indent-blankline.nvim"] = "indent-blankline",
   ["lazy.nvim"] = "lazy",
+  ["leap.nvim"] = "leap",
+  ["markview.nvim"] = "markview",
+  ["mason.nvim"] = "mason",
+  ["nvim-notify"] = "notify",
   ["nvim-tree.lua"] = "nvim-tree",
+  ["render-markdown.nvim"] = "render-markdown",
   ["snacks.nvim"] = "snacks",
   ["telescope.nvim"] = "telescope",
+  ["tiny-inline-diagnostic.nvim"] = "tiny-inline-diagnostic",
+  ["todo-comments.nvim"] = "todo",
   ["trouble.nvim"] = "trouble",
   ["which-key.nvim"] = "which-key",
 }
@@ -40,7 +53,7 @@ function M.setup(palette, opts)
   local groups = {}
 
   -- Always load core groups
-  for _, name in ipairs({ "base", "treesitter", "semantic_tokens" }) do
+  for _, name in ipairs({ "base", "treesitter", "semantic_tokens", "git" }) do
     local mod = require("bearded-arc.groups." .. name)
     local hls = mod.get(palette, opts)
     for k, v in pairs(hls) do

@@ -1,6 +1,6 @@
 # Plugins
 
-bearded-arc.nvim ships with highlight groups for 12 popular plugins and can auto-detect which ones you have installed.
+bearded-arc.nvim ships with highlight groups for 25 popular plugins and can auto-detect which ones you have installed.
 
 ## Auto-Detection
 
@@ -20,6 +20,18 @@ You can override per-plugin with `plugins.<key> = true` or `false`, which takes 
 Key: `blink`
 
 Completion menu, borders, selection, kind icons (35 groups). Covers `BlinkCmpMenu`, `BlinkCmpLabel`, `BlinkCmpKind*`, and ghost text.
+
+### [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+
+Key: `bufferline`
+
+Tab/buffer line: background, selected, visible, close buttons, modified indicators, separators, tabs, duplicates, and dev icons (30 groups).
+
+### [code-action-menu.nvim](https://github.com/weilbith/nvim-code-action-menu)
+
+Key: `codeactionmenu`
+
+Code action menu: warning messages, menu index, kind, title, selection, details, preferred, and disabled states (12 groups).
 
 ### [cokeline.nvim](https://github.com/willothy/nvim-cokeline)
 
@@ -45,6 +57,18 @@ Key: `gitsigns`
 
 Sign column indicators for add, change, and delete with line and line number variants.
 
+### [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim)
+
+Key: `grug-far`
+
+Find and replace: result match, added, and removed highlights (3 groups).
+
+### [hop.nvim](https://github.com/smoka7/hop.nvim)
+
+Key: `hop`
+
+Motion labels: primary, secondary, and tertiary key highlights (3 groups).
+
 ### [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 
 Key: `indent-blankline`
@@ -57,11 +81,53 @@ Key: `lazy`
 
 Plugin manager UI: buttons, headers, comments, commits, properties, and progress bar (18 groups).
 
+### [leap.nvim](https://github.com/ggandor/leap.nvim)
+
+Key: `leap`
+
+Motion labels: backdrop, label, and match highlights (3 groups).
+
+### [markview.nvim](https://github.com/OXY2DEV/markview.nvim)
+
+Key: `markview`
+
+Markdown heading colors for h1-h6 (6 groups).
+
+### [mason.nvim](https://github.com/williamboman/mason.nvim)
+
+Key: `mason`
+
+LSP installer: header, highlights, highlight blocks, muted text, and muted blocks (7 groups).
+
+### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+
+Key: `cmp`
+
+Completion menu, documentation, borders, selection, and 30+ item kind highlights including Copilot, Codeium, TabNine, and SuperMaven (42 groups).
+
+### [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+
+Key: `dap`
+
+Debug adapter: breakpoints, dap-ui scopes/variables/watches/threads/controls, and dap-view tabs/threads/controls/watches (82 groups).
+
+### [nvim-notify](https://github.com/rcarriga/nvim-notify)
+
+Key: `notify`
+
+Notification popups: ERROR, WARN, INFO, DEBUG, and TRACE borders, icons, and titles (15 groups).
+
 ### [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
 
 Key: `nvim-tree`
 
 File explorer: normal, folder icons, git status, root folder, and cursor line (12 groups).
+
+### [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+
+Key: `render-markdown`
+
+Markdown heading colors h1-h6 and subtle blended heading backgrounds (12 groups).
 
 ### [snacks.nvim](https://github.com/folke/snacks.nvim)
 
@@ -74,6 +140,18 @@ Normal, border, title, notifier, dashboard, and picker highlights (36 groups).
 Key: `telescope`
 
 Fuzzy finder: normal, border, title, prompt, results, preview, and selection (13 groups).
+
+### [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim)
+
+Key: `tiny-inline-diagnostic`
+
+Inline diagnostics: virtual text with blended backgrounds for error, warn, info, and hint, plus inverted variants (9 groups).
+
+### [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+
+Key: `todo`
+
+TODO/FIXME/HACK/NOTE/PERF/TEST/WARN highlights with background, foreground, and sign variants (21 groups).
 
 ### [trouble.nvim](https://github.com/folke/trouble.nvim)
 

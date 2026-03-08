@@ -6,7 +6,7 @@ A dark Neovim colorscheme based on the [Bearded Theme Arc](https://marketplace.v
 
 - Treesitter and LSP semantic token support
 - Language-specific highlights for JS/JSX, Python, Go, Svelte, CSS, and more
-- 12 plugin integrations with smart auto-detection via lazy.nvim
+- 25 plugin integrations with smart auto-detection via lazy.nvim
 - Customizable via color and highlight override hooks
 - Terminal color support
 
@@ -79,15 +79,28 @@ require("bearded-arc").setup({
 | Plugin | Key |
 | --- | --- |
 | [blink.cmp](https://github.com/Saghen/blink.cmp) | `blink` |
+| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | `bufferline` |
+| [code-action-menu.nvim](https://github.com/weilbith/nvim-code-action-menu) | `codeactionmenu` |
 | [cokeline.nvim](https://github.com/willothy/nvim-cokeline) | `cokeline` |
 | [flash.nvim](https://github.com/folke/flash.nvim) | `flash` |
 | [fzf-lua](https://github.com/ibhagwan/fzf-lua) | `fzf` |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | `gitsigns` |
+| [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim) | `grug-far` |
+| [hop.nvim](https://github.com/smoka7/hop.nvim) | `hop` |
 | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | `indent-blankline` |
 | [lazy.nvim](https://github.com/folke/lazy.nvim) | `lazy` |
+| [leap.nvim](https://github.com/ggandor/leap.nvim) | `leap` |
+| [markview.nvim](https://github.com/OXY2DEV/markview.nvim) | `markview` |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | `mason` |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | `cmp` |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | `dap` |
+| [nvim-notify](https://github.com/rcarriga/nvim-notify) | `notify` |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | `nvim-tree` |
+| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | `render-markdown` |
 | [snacks.nvim](https://github.com/folke/snacks.nvim) | `snacks` |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | `telescope` |
+| [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) | `tiny-inline-diagnostic` |
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | `todo` |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | `trouble` |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | `which-key` |
 
