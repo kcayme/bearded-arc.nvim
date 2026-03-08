@@ -24,7 +24,7 @@ A dark Neovim port based on the [Bearded Theme Arc](https://marketplace.visualst
 
 ```lua
 {
-  "karlcayme/bearded-arc.nvim",
+  "kcayme/bearded-arc.nvim",
   lazy = false,
   priority = 1000,
   opts = {},
@@ -34,7 +34,7 @@ A dark Neovim port based on the [Bearded Theme Arc](https://marketplace.visualst
 ### [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use { "karlcayme/bearded-arc.nvim" }
+use { "kcayme/bearded-arc.nvim" }
 ```
 
 ## Usage
