@@ -1,0 +1,1 @@
+require("bearded-arc").load()
