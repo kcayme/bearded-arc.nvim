@@ -74,6 +74,8 @@ require("bearded-arc").setup({
 })
 ```
 
+<!-- panvimdoc-ignore-start -->
+
 ## Supported Plugins
 
 | Plugin | Key |
@@ -104,6 +106,12 @@ require("bearded-arc").setup({
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | `trouble` |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | `which-key` |
 
+<!-- panvimdoc-ignore-end -->
+
+<!-- panvimdoc-ignore-start -->
+
 ## Acknowledgements
 
 - [Bearded Theme](https://github.com/BeardedBear/bearded-theme) by BeardedBear for the original color palette
+
+<!-- panvimdoc-ignore-end -->
