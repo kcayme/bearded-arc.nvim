@@ -1,0 +1,165 @@
+*bearded-arc.txt*A dark Neovim colorscheme based on the Bearded Theme Arc variant
+
+==============================================================================
+Table of Contents                              *bearded-arc-table-of-contents*
+
+1. bearded-arc.nvim                             |bearded-arc-bearded-arc.nvim|
+  - Features                           |bearded-arc-bearded-arc.nvim-features|
+  - Requirements                   |bearded-arc-bearded-arc.nvim-requirements|
+  - Installation                   |bearded-arc-bearded-arc.nvim-installation|
+  - Usage                                 |bearded-arc-bearded-arc.nvim-usage|
+  - Configuration                 |bearded-arc-bearded-arc.nvim-configuration|
+  - Supported Plugins         |bearded-arc-bearded-arc.nvim-supported-plugins|
+  - Acknowledgements           |bearded-arc-bearded-arc.nvim-acknowledgements|
+
+==============================================================================
+1. bearded-arc.nvim                             *bearded-arc-bearded-arc.nvim*
+
+A dark Neovim port based on the Bearded Theme Arc
+<https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedtheme>
+for VS Code.
+
+
+FEATURES                               *bearded-arc-bearded-arc.nvim-features*
+
+- Treesitter and LSP semantic token support
+- Language-specific highlights for JS/JSX, Python, Go, Svelte, CSS, and more
+- 25 plugin integrations with smart auto-detection via lazy.nvim
+- Customizable via color and highlight override hooks
+- Terminal color support
+
+
+REQUIREMENTS                       *bearded-arc-bearded-arc.nvim-requirements*
+
+- Neovim >= 0.8.0
+- `termguicolors` enabled
+
+
+INSTALLATION                       *bearded-arc-bearded-arc.nvim-installation*
+
+
+LAZY.NVIM ~
+
+>lua
+    {
+      "karlcayme/bearded-arc.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    }
+<
+
+
+PACKER.NVIM ~
+
+>lua
+    use { "karlcayme/bearded-arc.nvim" }
+<
+
+
+USAGE                                     *bearded-arc-bearded-arc.nvim-usage*
+
+>lua
+    vim.cmd.colorscheme("bearded-arc")
+<
+
+
+CONFIGURATION                     *bearded-arc-bearded-arc.nvim-configuration*
+
+Configuration is optional. Call `setup` before loading the colorscheme to
+override defaults:
+
+>lua
+    require("bearded-arc").setup({
+      transparent = false,       -- enable background transparency
+      terminal_colors = true,    -- apply ANSI terminal colors
+      dim_inactive = false,      -- dim inactive windows
+      styles = {
+        comments = { italic = true },
+        keywords = {},
+        functions = {},
+        variables = {},
+        strings = {},
+      },
+      on_colors = function(colors)
+        -- override palette colors
+        -- colors.blue = "#89b4fa"
+      end,
+      on_highlights = function(highlights, palette)
+        -- override highlight groups
+        -- highlights.Comment = { fg = palette.muted, italic = true }
+      end,
+      plugins = {
+        all = false,    -- load all plugin highlights
+        auto = true,    -- auto-detect installed plugins via lazy.nvim
+        -- override per plugin:
+        -- telescope = true,
+        -- gitsigns = false,
+      },
+    })
+<
+
+
+SUPPORTED PLUGINS             *bearded-arc-bearded-arc.nvim-supported-plugins*
+
+  -----------------------------------------------------------------------
+  Plugin                              Key
+  ----------------------------------- -----------------------------------
+  blink.cmp                           blink
+
+  bufferline.nvim                     bufferline
+
+  code-action-menu.nvim               codeactionmenu
+
+  cokeline.nvim                       cokeline
+
+  flash.nvim                          flash
+
+  fzf-lua                             fzf
+
+  gitsigns.nvim                       gitsigns
+
+  grug-far.nvim                       grug-far
+
+  hop.nvim                            hop
+
+  indent-blankline.nvim               indent-blankline
+
+  lazy.nvim                           lazy
+
+  leap.nvim                           leap
+
+  markview.nvim                       markview
+
+  mason.nvim                          mason
+
+  nvim-cmp                            cmp
+
+  nvim-dap                            dap
+
+  nvim-notify                         notify
+
+  nvim-tree.lua                       nvim-tree
+
+  render-markdown.nvim                render-markdown
+
+  snacks.nvim                         snacks
+
+  telescope.nvim                      telescope
+
+  tiny-inline-diagnostic.nvim         tiny-inline-diagnostic
+
+  todo-comments.nvim                  todo
+
+  trouble.nvim                        trouble
+
+  which-key.nvim                      which-key
+  -----------------------------------------------------------------------
+
+ACKNOWLEDGEMENTS               *bearded-arc-bearded-arc.nvim-acknowledgements*
+
+- Bearded Theme <https://github.com/BeardedBear/bearded-theme> by BeardedBear for the original color palette
+
+Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
+
+vim:tw=78:ts=8:noet:ft=help:norl:
