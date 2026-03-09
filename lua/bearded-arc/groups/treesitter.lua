@@ -10,7 +10,7 @@ function M.get(c, opts)
 
     -- Constants (red)
     ["@constant"] = { fg = c.red },
-    ["@constant.builtin"] = { fg = c.red },           -- null, true, false
+    ["@constant.builtin"] = { fg = c.orange },           -- null, true, false
     ["@constant.macro"] = { fg = c.red },
 
     -- Strings (green)
@@ -25,10 +25,10 @@ function M.get(c, opts)
     ["@character"] = { fg = c.green },
     ["@character.special"] = { fg = c.lime },
 
-    -- Numbers (red — constants scope)
-    ["@number"] = { fg = c.red },
-    ["@number.float"] = { fg = c.red },
-    ["@boolean"] = { fg = c.red },
+    -- Numbers (orange — constants scope)
+    ["@number"] = { fg = c.orange },
+    ["@number.float"] = { fg = c.orange },
+    ["@boolean"] = { fg = c.orange },
 
     -- Functions (blue)
     ["@function"] = vim.tbl_extend("force", { fg = c.blue }, opts.styles.functions),
