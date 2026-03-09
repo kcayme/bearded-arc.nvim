@@ -1,5 +1,8 @@
 # bearded-arc.nvim
 
+[![Neovim](https://img.shields.io/badge/Neovim-%3E%3D0.8.0-57A143?logo=neovim&logoColor=white)](https://neovim.io)
+[![License](https://img.shields.io/github/license/kcayme/bearded-arc.nvim)](https://github.com/kcayme/bearded-arc.nvim/blob/main/LICENSE)
+
 A dark Neovim port based on the [Bearded Theme Arc](https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedtheme) for VS Code.
 
 ![JSX](./assets/sample_1.png)
@@ -41,6 +44,14 @@ use { "kcayme/bearded-arc.nvim" }
 
 ```lua
 vim.cmd.colorscheme("bearded-arc")
+```
+
+## Help
+
+Full documentation is available inside Neovim:
+
+```vim
+:h bearded-arc
 ```
 
 ## Configuration
