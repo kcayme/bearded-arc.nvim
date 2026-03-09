@@ -1,6 +1,8 @@
 local M = {}
 
 M.plugins = {
+  ["aerial.nvim"] = "aerial",
+  ["atone.nvim"] = "atone",
   ["blink.cmp"] = "blink",
   ["bufferline.nvim"] = "bufferline",
   ["code-action-menu.nvim"] = "codeactionmenu",
@@ -20,6 +22,7 @@ M.plugins = {
   ["mason.nvim"] = "mason",
   ["nvim-notify"] = "notify",
   ["nvim-tree.lua"] = "nvim-tree",
+  ["oil.nvim"] = "oil",
   ["render-markdown.nvim"] = "render-markdown",
   ["snacks.nvim"] = "snacks",
   ["telescope.nvim"] = "telescope",

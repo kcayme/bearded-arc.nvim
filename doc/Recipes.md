@@ -92,6 +92,42 @@ require("bearded-arc").setup({
 })
 ```
 
+## Enabling Undercurl
+
+bearded-arc uses `undercurl` for diagnostics and spell-check highlights by default. If undercurls appear as plain underlines, your terminal or multiplexer likely needs configuration.
+
+### Supported Terminals
+
+Undercurl works out of the box in: **Kitty**, **WezTerm**, **Ghostty**, **iTerm2** (3.4+), **Alacritty** (0.14+), **foot**.
+
+**Apple Terminal does not support undercurl.**
+
+### tmux
+
+tmux strips undercurl escape sequences by default. Add the following to `~/.tmux.conf`:
+
+```tmux
+set -g default-terminal "tmux-256color"
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
+```
+
+Then restart tmux completely:
+
+```sh
+tmux kill-server
+```
+
+### Verifying
+
+Run the following in Neovim to confirm undercurl is active:
+
+```vim
+:highlight DiagnosticUnderlineError
+```
+
+The output should include `cterm=undercurl gui=undercurl`.
+
 ## Underline Diagnostics Instead of Undercurl
 
 ```lua

@@ -1,0 +1,72 @@
+local M = {}
+
+function M.get(c, opts)
+  return {
+    -- UI
+    AerialNormal = { fg = c.fg },
+    AerialNormalFloat = { fg = c.fg, bg = c.float_bg },
+    AerialLine = { bg = c.bg_highlight },
+    AerialLineNC = { bg = c.bg_highlight },
+    AerialGuide = { fg = c.fg_dim },
+    AerialPrivate = { fg = c.fg_muted },
+    AerialProtected = { fg = c.fg_muted },
+
+    -- Symbol kinds
+    AerialArray = { fg = c.orange },
+    AerialBoolean = { fg = c.red },
+    AerialClass = { fg = c.purple },
+    AerialConstant = { fg = c.red },
+    AerialConstructor = { fg = c.blue },
+    AerialEnum = { fg = c.purple },
+    AerialEnumMember = { fg = c.orange },
+    AerialEvent = { fg = c.orange },
+    AerialField = { fg = c.orange },
+    AerialFile = { fg = c.fg },
+    AerialFunction = { fg = c.blue },
+    AerialInterface = { fg = c.purple },
+    AerialKey = { fg = c.orange },
+    AerialMethod = { fg = c.blue },
+    AerialModule = { fg = c.blue },
+    AerialNamespace = { fg = c.blue },
+    AerialNull = { fg = c.red },
+    AerialNumber = { fg = c.red },
+    AerialObject = { fg = c.purple },
+    AerialOperator = { fg = c.yellow },
+    AerialPackage = { fg = c.blue },
+    AerialProperty = { fg = c.orange },
+    AerialString = { fg = c.green },
+    AerialStruct = { fg = c.purple },
+    AerialTypeParameter = { fg = c.purple },
+    AerialVariable = { fg = c.pink },
+
+    -- Symbol kind icons
+    AerialArrayIcon = { fg = c.orange },
+    AerialBooleanIcon = { fg = c.red },
+    AerialClassIcon = { fg = c.purple },
+    AerialConstantIcon = { fg = c.red },
+    AerialConstructorIcon = { fg = c.blue },
+    AerialEnumIcon = { fg = c.purple },
+    AerialEnumMemberIcon = { fg = c.orange },
+    AerialEventIcon = { fg = c.orange },
+    AerialFieldIcon = { fg = c.orange },
+    AerialFileIcon = { fg = c.fg },
+    AerialFunctionIcon = { fg = c.blue },
+    AerialInterfaceIcon = { fg = c.purple },
+    AerialKeyIcon = { fg = c.orange },
+    AerialMethodIcon = { fg = c.blue },
+    AerialModuleIcon = { fg = c.blue },
+    AerialNamespaceIcon = { fg = c.blue },
+    AerialNullIcon = { fg = c.red },
+    AerialNumberIcon = { fg = c.red },
+    AerialObjectIcon = { fg = c.purple },
+    AerialOperatorIcon = { fg = c.yellow },
+    AerialPackageIcon = { fg = c.blue },
+    AerialPropertyIcon = { fg = c.orange },
+    AerialStringIcon = { fg = c.green },
+    AerialStructIcon = { fg = c.purple },
+    AerialTypeParameterIcon = { fg = c.purple },
+    AerialVariableIcon = { fg = c.pink },
+  }
+end
+
+return M

@@ -1,6 +1,6 @@
 # Plugins
 
-bearded-arc.nvim ships with highlight groups for 25 popular plugins and can auto-detect which ones you have installed.
+bearded-arc.nvim ships with highlight groups for 28 popular plugins and can auto-detect which ones you have installed.
 
 ## Auto-Detection
 
@@ -14,6 +14,18 @@ When using [lazy.nvim](https://github.com/folke/lazy.nvim), plugins are detected
 You can override per-plugin with `plugins.<key> = true` or `false`, which takes priority over both `all` and `auto`.
 
 ## Supported Plugins
+
+### [aerial.nvim](https://github.com/stevearc/aerial.nvim)
+
+Key: `aerial`
+
+Code outline: UI elements (normal, float, guide, line, private/protected), 26 symbol kind highlights, and 26 matching icon highlights with colors consistent with blink.cmp kind groups (59 groups).
+
+### [atone.nvim](https://github.com/XXiaoA/atone.nvim)
+
+Key: `atone`
+
+Undo tree: sequence numbers, brackets, and current node highlight (3 groups).
 
 ### [blink.cmp](https://github.com/Saghen/blink.cmp)
 
@@ -122,6 +134,12 @@ Notification popups: ERROR, WARN, INFO, DEBUG, and TRACE borders, icons, and tit
 Key: `nvim-tree`
 
 File explorer: normal, folder icons, git status, root folder, and cursor line (12 groups).
+
+### [oil.nvim](https://github.com/stevearc/oil.nvim)
+
+Key: `oil`
+
+File explorer: directories, files, links, orphan links, sockets, hidden items, and file operations (create, delete, move, copy, change, restore, purge, trash) (31 groups).
 
 ### [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 
