@@ -125,6 +125,9 @@ function M.get(c, opts)
     -- Labels
     ["@label"] = { fg = c.pink },
 
+    -- Bash/sh variable names (covers .env keys like DATABASE_URL)
+    ["@constant.bash"] = { fg = c.orange },
+
     -- Misc
     ["@diff.plus"] = { fg = c.green },
     ["@diff.minus"] = { fg = c.red },
