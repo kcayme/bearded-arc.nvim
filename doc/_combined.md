@@ -12,7 +12,7 @@ A Neovim port of my favorite VSCode theme, [Bearded Theme Arc](https://marketpla
 
 - Treesitter and LSP semantic token support
 - Language-specific highlights for JS/JSX, Python, Go, Svelte, CSS, and more
-- 25 plugin integrations with smart auto-detection via lazy.nvim
+- 29 plugin integrations with smart auto-detection via lazy.nvim
 - Customizable via color and highlight override hooks
 - Terminal color support
 
@@ -92,33 +92,7 @@ require("bearded-arc").setup({
 
 ## Supported Plugins
 
-| Plugin | Key |
-| --- | --- |
-| [blink.cmp](https://github.com/Saghen/blink.cmp) | `blink` |
-| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | `bufferline` |
-| [code-action-menu.nvim](https://github.com/weilbith/nvim-code-action-menu) | `codeactionmenu` |
-| [cokeline.nvim](https://github.com/willothy/nvim-cokeline) | `cokeline` |
-| [flash.nvim](https://github.com/folke/flash.nvim) | `flash` |
-| [fzf-lua](https://github.com/ibhagwan/fzf-lua) | `fzf` |
-| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | `gitsigns` |
-| [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim) | `grug-far` |
-| [hop.nvim](https://github.com/smoka7/hop.nvim) | `hop` |
-| [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | `indent-blankline` |
-| [lazy.nvim](https://github.com/folke/lazy.nvim) | `lazy` |
-| [leap.nvim](https://github.com/ggandor/leap.nvim) | `leap` |
-| [markview.nvim](https://github.com/OXY2DEV/markview.nvim) | `markview` |
-| [mason.nvim](https://github.com/williamboman/mason.nvim) | `mason` |
-| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | `cmp` |
-| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | `dap` |
-| [nvim-notify](https://github.com/rcarriga/nvim-notify) | `notify` |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | `nvim-tree` |
-| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | `render-markdown` |
-| [snacks.nvim](https://github.com/folke/snacks.nvim) | `snacks` |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | `telescope` |
-| [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) | `tiny-inline-diagnostic` |
-| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | `todo` |
-| [trouble.nvim](https://github.com/folke/trouble.nvim) | `trouble` |
-| [which-key.nvim](https://github.com/folke/which-key.nvim) | `which-key` |
+29 plugins are supported with auto-detection via lazy.nvim. See the [full list](doc/Plugins.md) for details and per-plugin configuration.
 
 <!-- panvimdoc-ignore-end -->
 
@@ -488,12 +462,85 @@ require("bearded-arc").setup({
 
 Note: When both are enabled, inactive windows use `bg_dark` while the active window has a transparent background.
 
-## Accessing the Palette Programmatically
+## Importing the Palette
+
+The palette can be imported for use in other plugin configurations:
 
 ```lua
--- after the colorscheme is loaded
 local palette = require("bearded-arc").palette()
-print(palette.blue) -- #69C3FF
 ```
 
-This is useful for integrating the theme colors into other plugin configurations (statuslines, etc.).
+This works at any point — even before loading the colorscheme. If `setup()` hasn't been called yet, it auto-initializes with defaults. The returned table includes all palette colors and respects any `on_colors` overrides.
+
+### Statusline (lualine.nvim)
+
+```lua
+local c = require("bearded-arc").palette()
+
+require("lualine").setup({
+  options = {
+    theme = {
+      normal = {
+        a = { fg = c.bg, bg = c.blue, gui = "bold" },
+        b = { fg = c.fg, bg = c.bg_popup },
+        c = { fg = c.fg_muted, bg = c.bg_status },
+      },
+      insert = { a = { fg = c.bg, bg = c.green, gui = "bold" } },
+      visual = { a = { fg = c.bg, bg = c.purple, gui = "bold" } },
+      command = { a = { fg = c.bg, bg = c.yellow, gui = "bold" } },
+      replace = { a = { fg = c.bg, bg = c.red, gui = "bold" } },
+      inactive = {
+        a = { fg = c.fg_dim, bg = c.bg_dark },
+        b = { fg = c.fg_dim, bg = c.bg_dark },
+        c = { fg = c.fg_dim, bg = c.bg_dark },
+      },
+    },
+  },
+})
+```
+
+### Statusline (heirline.nvim)
+
+```lua
+local c = require("bearded-arc").palette()
+
+local colors = {
+  bg = c.bg_status,
+  fg = c.fg,
+  blue = c.blue,
+  green = c.green,
+  red = c.red,
+  yellow = c.yellow,
+  purple = c.purple,
+  muted = c.fg_dim,
+}
+
+require("heirline").setup({
+  opts = { colors = colors },
+  -- ...
+})
+```
+
+### Indent line color
+
+```lua
+local c = require("bearded-arc").palette()
+
+require("ibl").setup({
+  indent = { char = "│", highlight = "IblIndent" },
+  scope = { highlight = "IblScope" },
+})
+
+vim.api.nvim_set_hl(0, "IblIndent", { fg = c.bg_popup })
+vim.api.nvim_set_hl(0, "IblScope", { fg = c.fg_dim })
+```
+
+### Available colors
+
+| Category | Keys |
+| --- | --- |
+| Backgrounds | `bg`, `bg_dark`, `bg_darker`, `bg_float`, `bg_popup`, `bg_visual`, `bg_status`, `bg_highlight` |
+| Foregrounds | `fg`, `fg_muted`, `fg_dim`, `fg_gutter` |
+| Accents | `blue`, `green`, `yellow`, `red`, `cyan`, `purple`, `magenta`, `orange`, `pink`, `lime` |
+| Semantic | `error`, `warning`, `info`, `hint`, `success` |
+| Special | `none` (transparent) |
