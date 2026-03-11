@@ -152,12 +152,85 @@ require("bearded-arc").setup({
 
 Note: When both are enabled, inactive windows use `bg_dark` while the active window has a transparent background.
 
-## Accessing the Palette Programmatically
+## Importing the Palette
+
+The palette can be imported for use in other plugin configurations:
 
 ```lua
--- after the colorscheme is loaded
 local palette = require("bearded-arc").palette()
-print(palette.blue) -- #69C3FF
 ```
 
-This is useful for integrating the theme colors into other plugin configurations (statuslines, etc.).
+This works at any point — even before loading the colorscheme. If `setup()` hasn't been called yet, it auto-initializes with defaults. The returned table includes all palette colors and respects any `on_colors` overrides.
+
+### Statusline (lualine.nvim)
+
+```lua
+local c = require("bearded-arc").palette()
+
+require("lualine").setup({
+  options = {
+    theme = {
+      normal = {
+        a = { fg = c.bg, bg = c.blue, gui = "bold" },
+        b = { fg = c.fg, bg = c.bg_popup },
+        c = { fg = c.fg_muted, bg = c.bg_status },
+      },
+      insert = { a = { fg = c.bg, bg = c.green, gui = "bold" } },
+      visual = { a = { fg = c.bg, bg = c.purple, gui = "bold" } },
+      command = { a = { fg = c.bg, bg = c.yellow, gui = "bold" } },
+      replace = { a = { fg = c.bg, bg = c.red, gui = "bold" } },
+      inactive = {
+        a = { fg = c.fg_dim, bg = c.bg_dark },
+        b = { fg = c.fg_dim, bg = c.bg_dark },
+        c = { fg = c.fg_dim, bg = c.bg_dark },
+      },
+    },
+  },
+})
+```
+
+### Statusline (heirline.nvim)
+
+```lua
+local c = require("bearded-arc").palette()
+
+local colors = {
+  bg = c.bg_status,
+  fg = c.fg,
+  blue = c.blue,
+  green = c.green,
+  red = c.red,
+  yellow = c.yellow,
+  purple = c.purple,
+  muted = c.fg_dim,
+}
+
+require("heirline").setup({
+  opts = { colors = colors },
+  -- ...
+})
+```
+
+### Indent line color
+
+```lua
+local c = require("bearded-arc").palette()
+
+require("ibl").setup({
+  indent = { char = "│", highlight = "IblIndent" },
+  scope = { highlight = "IblScope" },
+})
+
+vim.api.nvim_set_hl(0, "IblIndent", { fg = c.bg_popup })
+vim.api.nvim_set_hl(0, "IblScope", { fg = c.fg_dim })
+```
+
+### Available colors
+
+| Category | Keys |
+| --- | --- |
+| Backgrounds | `bg`, `bg_dark`, `bg_darker`, `bg_float`, `bg_popup`, `bg_visual`, `bg_status`, `bg_highlight` |
+| Foregrounds | `fg`, `fg_muted`, `fg_dim`, `fg_gutter` |
+| Accents | `blue`, `green`, `yellow`, `red`, `cyan`, `purple`, `magenta`, `orange`, `pink`, `lime` |
+| Semantic | `error`, `warning`, `info`, `hint`, `success` |
+| Special | `none` (transparent) |
