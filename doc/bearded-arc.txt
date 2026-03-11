@@ -44,7 +44,7 @@ FEATURES                               *bearded-arc-bearded-arc.nvim-features*
 
 - Treesitter and LSP semantic token support
 - Language-specific highlights for JS/JSX, Python, Go, Svelte, CSS, and more
-- 29 plugin integrations with smart auto-detection via lazy.nvim
+- 36 plugin integrations with smart auto-detection via lazy.nvim
 - Customizable via color and highlight override hooks
 - Terminal color support
 
