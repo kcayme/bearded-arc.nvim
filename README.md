@@ -12,7 +12,7 @@ A Neovim port of my favorite VSCode theme, [Bearded Theme Arc](https://marketpla
 
 - Treesitter and LSP semantic token support
 - Language-specific highlights for JS/JSX, Python, Go, Svelte, CSS, and more
-- 29 plugin integrations with smart auto-detection via lazy.nvim
+- 36 plugin integrations with smart auto-detection via lazy.nvim
 - Customizable via color and highlight override hooks
 - Terminal color support
 
@@ -92,7 +92,7 @@ require("bearded-arc").setup({
 
 ## Supported Plugins
 
-29 plugins are supported with auto-detection via lazy.nvim. See the [full list](doc/Plugins.md) for details and per-plugin configuration.
+36 plugins are supported with auto-detection via lazy.nvim. See the [full list](doc/Plugins.md) for details and per-plugin configuration.
 
 <!-- panvimdoc-ignore-end -->
 

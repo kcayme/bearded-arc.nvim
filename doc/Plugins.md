@@ -1,6 +1,6 @@
 # Plugins
 
-bearded-arc.nvim ships with highlight groups for 29 popular plugins and can auto-detect which ones you have installed.
+bearded-arc.nvim ships with highlight groups for 36 popular plugins and can auto-detect which ones you have installed.
 
 ## Auto-Detection
 
@@ -21,6 +21,7 @@ You can override per-plugin with `plugins.<key> = true` or `false`, which takes 
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) — `bufferline` — Tab/buffer line, separators, and indicators (30 groups)
 - [code-action-menu.nvim](https://github.com/weilbith/nvim-code-action-menu) — `codeactionmenu` — Code action menu and states (12 groups)
 - [cokeline.nvim](https://github.com/willothy/nvim-cokeline) — `cokeline` — Buffer line active/inactive styling
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim) — `diffview` — Diff viewer, file panel, and git status indicators (48 groups)
 - [fff.nvim](https://github.com/kcayme/fff.nvim) — `fff` — File manager selection and git status indicators (20 groups)
 - [flash.nvim](https://github.com/folke/flash.nvim) — `flash` — Backdrop, label, and match highlights
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua) — `fzf` — Fuzzy finder, border, title, and preview
@@ -32,11 +33,15 @@ You can override per-plugin with `plugins.<key> = true` or `false`, which takes 
 - [leap.nvim](https://github.com/ggandor/leap.nvim) — `leap` — Motion labels and match highlights (3 groups)
 - [markview.nvim](https://github.com/OXY2DEV/markview.nvim) — `markview` — Markdown heading colors h1–h6 (6 groups)
 - [mason.nvim](https://github.com/williamboman/mason.nvim) — `mason` — LSP installer UI (7 groups)
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) — `mini` — Files, indentscope, statusline, tabline, pick, diff, icons, and more (120+ groups)
+- [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) — `neo-tree` — File explorer, git status, and tabs (47 groups)
+- [neogit](https://github.com/NeogitOrg/neogit) — `neogit` — Git interface, diffs, popups, and graph (110+ groups)
 - [noice.nvim](https://github.com/folke/noice.nvim) — `noice` — Cmdline, popupmenu, notifications, and LSP progress (37 groups)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) — `cmp` — Completion menu, borders, and item kind highlights (42 groups)
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap) — `dap` — Debug adapter, breakpoints, and dap-ui/dap-view (82 groups)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify) — `notify` — Notification popups by level (15 groups)
 - [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) — `nvim-tree` — File explorer, folder icons, and git status (12 groups)
+- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) — `treesitter-context` — Sticky scroll context and separators (5 groups)
 - [oil.nvim](https://github.com/stevearc/oil.nvim) — `oil` — File explorer and file operations (31 groups)
 - [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) — `render-markdown` — Markdown headings and blended backgrounds (12 groups)
 - [snacks.nvim](https://github.com/folke/snacks.nvim) — `snacks` — Notifier, dashboard, and picker highlights (36 groups)
@@ -44,6 +49,7 @@ You can override per-plugin with `plugins.<key> = true` or `false`, which takes 
 - [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) — `tiny-inline-diagnostic` — Inline diagnostics with blended backgrounds (9 groups)
 - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) — `todo` — TODO/FIXME/HACK/NOTE highlights and signs (21 groups)
 - [trouble.nvim](https://github.com/folke/trouble.nvim) — `trouble` — Diagnostics list and icons (10 groups)
+- [vim-illuminate](https://github.com/RRethy/vim-illuminate) — `illuminate` — Highlight word under cursor for text, read, and write references (3 groups)
 - [which-key.nvim](https://github.com/folke/which-key.nvim) — `which-key` — Key popup, groups, and descriptions (19 groups)
 
 ## Configuration Examples
