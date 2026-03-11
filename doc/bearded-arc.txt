@@ -23,6 +23,7 @@ Table of Contents                              *bearded-arc-table-of-contents*
   - Borderless Telescope            |bearded-arc-recipes-borderless-telescope|
   - Brighter Line Numbers          |bearded-arc-recipes-brighter-line-numbers|
   - Enabling Undercurl                |bearded-arc-recipes-enabling-undercurl|
+  - Custom Cursor Hover Highlights|bearded-arc-recipes-custom-cursor-hover-highlights|
   - Underline Diagnostics Instead of Undercurl|bearded-arc-recipes-underline-diagnostics-instead-of-undercurl|
   - Dim Inactive Windows with Transparency|bearded-arc-recipes-dim-inactive-windows-with-transparency|
   - Importing the Palette          |bearded-arc-recipes-importing-the-palette|
@@ -508,13 +509,31 @@ Then restart tmux completely:
 
 VERIFYING ~
 
-Run the following in Neovim to confirm undercurl is active:
+Run the following in your terminal to confirm undercurl rendering works:
 
->vim
-    :highlight DiagnosticUnderlineError
+>sh
+    printf '\e[4:3m undercurl \e[0m\n'
 <
 
-The output should include `cterm=undercurl gui=undercurl`.
+You should see "undercurl" with a **wavy underline**. If it appears as a
+straight underline or not at all, your terminal (or tmux) is not handling
+undercurl escape sequences correctly.
+
+
+CUSTOM CURSOR HOVER HIGHLIGHTS*bearded-arc-recipes-custom-cursor-hover-highlights*
+
+Override the highlight used when the cursor hovers over a symbol (via
+`vim.lsp.buf.document_highlight`):
+
+>lua
+    require("bearded-arc").setup({
+      on_highlights = function(hl, c)
+        hl.LspReferenceText = { bg = c.bg_visual }
+        hl.LspReferenceRead = { bg = c.bg_visual }
+        hl.LspReferenceWrite = { bg = c.bg_visual, bold = true }
+      end,
+    })
+<
 
 
 UNDERLINE DIAGNOSTICS INSTEAD OF UNDERCURL*bearded-arc-recipes-underline-diagnostics-instead-of-undercurl*

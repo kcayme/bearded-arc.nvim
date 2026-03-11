@@ -430,13 +430,27 @@ tmux kill-server
 
 ### Verifying
 
-Run the following in Neovim to confirm undercurl is active:
+Run the following in your terminal to confirm undercurl rendering works:
 
-```vim
-:highlight DiagnosticUnderlineError
+```sh
+printf '\e[4:3m undercurl \e[0m\n'
 ```
 
-The output should include `cterm=undercurl gui=undercurl`.
+You should see "undercurl" with a **wavy underline**. If it appears as a straight underline or not at all, your terminal (or tmux) is not handling undercurl escape sequences correctly.
+
+## Custom Cursor Hover Highlights
+
+Override the highlight used when the cursor hovers over a symbol (via `vim.lsp.buf.document_highlight`):
+
+```lua
+require("bearded-arc").setup({
+  on_highlights = function(hl, c)
+    hl.LspReferenceText = { bg = c.bg_visual }
+    hl.LspReferenceRead = { bg = c.bg_visual }
+    hl.LspReferenceWrite = { bg = c.bg_visual, bold = true }
+  end,
+})
+```
 
 ## Underline Diagnostics Instead of Undercurl
 
