@@ -40,7 +40,7 @@ function M.get(c, opts)
     CurSearch = { fg = c.bg, bg = c.sun, bold = true },
     Visual = { bg = c.bg_visual },
     VisualNOS = { bg = c.bg_visual },
-    MatchParen = { fg = c.orange, bold = true, underline = true },
+    MatchParen = { fg = c.orange, bold = true },
     ModeMsg = { fg = c.fg, bold = true },
     MoreMsg = { fg = c.blue },
     Question = { fg = c.blue },
@@ -124,7 +124,7 @@ function M.get(c, opts)
     -- LSP
     LspReferenceText = { bg = c.bg_highlight },
     LspReferenceRead = { bg = c.bg_highlight },
-    LspReferenceWrite = { bg = c.bg_highlight, bold = true },
+    LspReferenceWrite = { bg = c.bg_highlight },
     LspSignatureActiveParameter = { fg = c.orange, bold = true },
     LspInfoBorder = { fg = c.fg_gutter, bg = c.float_bg },
 
