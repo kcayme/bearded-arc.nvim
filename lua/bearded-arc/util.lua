@@ -15,11 +15,7 @@ function M.blend(fg, bg, alpha)
   local r = alpha * fr + (1 - alpha) * br
   local g = alpha * fg_ + (1 - alpha) * bg_
   local b = alpha * fb + (1 - alpha) * bb
-  return M.rgb_to_hex(
-    math.min(255, math.max(0, r)),
-    math.min(255, math.max(0, g)),
-    math.min(255, math.max(0, b))
-  )
+  return M.rgb_to_hex(math.min(255, math.max(0, r)), math.min(255, math.max(0, g)), math.min(255, math.max(0, b)))
 end
 
 function M.darken(hex, amount, bg)
