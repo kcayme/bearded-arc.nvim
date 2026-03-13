@@ -18,7 +18,7 @@ function M.setup(opts)
     fg = "#d8dde7",
     fg_muted = "#8196b5",
     fg_dim = "#536686",
-    fg_gutter = "#a9b5ca",
+    fg_gutter = "#536686",
 
     -- Accents
     blue = "#69C3FF",
