@@ -5,11 +5,12 @@ Table of Contents                              *bearded-arc-table-of-contents*
 
 1. bearded-arc.nvim                             |bearded-arc-bearded-arc.nvim|
   - Features                           |bearded-arc-bearded-arc.nvim-features|
+  - Color Palette                 |bearded-arc-bearded-arc.nvim-color-palette|
   - Requirements                   |bearded-arc-bearded-arc.nvim-requirements|
   - Installation                   |bearded-arc-bearded-arc.nvim-installation|
   - Usage                                 |bearded-arc-bearded-arc.nvim-usage|
-  - Help                                   |bearded-arc-bearded-arc.nvim-help|
   - Configuration                 |bearded-arc-bearded-arc.nvim-configuration|
+  - Help                                   |bearded-arc-bearded-arc.nvim-help|
 2. Configuration                                   |bearded-arc-configuration|
   - Options Reference            |bearded-arc-configuration-options-reference|
   - Full Default Configuration|bearded-arc-configuration-full-default-configuration|
@@ -35,19 +36,43 @@ Table of Contents                              *bearded-arc-table-of-contents*
 <https://neovim.io>
 <https://github.com/kcayme/bearded-arc.nvim/blob/main/LICENSE>
 
-A Neovim port of my favorite VSCode theme, Bearded Theme Arc
-<https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedtheme>.
+A dark Neovim colorscheme inspired by Bearded Theme Arc
+<https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedtheme>
+for VSCode. Deep navy backgrounds with vivid accent colors — full Treesitter,
+LSP semantic token support, and 71 plugin integrations.
 
 
 
 
 FEATURES                               *bearded-arc-bearded-arc.nvim-features*
 
-- Treesitter and LSP semantic token support
-- Language-specific highlights for JS/JSX, Python, Go, Svelte, CSS, and more
-- 71 plugin integrations with smart auto-detection via lazy.nvim
-- Customizable via color and highlight override hooks
-- Terminal color support
+- Full Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> highlight support
+- LSP semantic token highlights
+- Language-specific highlights for JS/JSX/TSX, Python, Go, Svelte, CSS, and more
+- 71 plugin integrations with smart auto-detection via lazy.nvim <https://github.com/folke/lazy.nvim>
+- Customizable via `on_colors` and `on_highlights` hooks
+- Terminal colors (16 ANSI colors)
+- Transparent background support
+
+
+COLOR PALETTE                     *bearded-arc-bearded-arc.nvim-color-palette*
+
+Deep navy backgrounds with vivid, readable accent colors:
+
+  Color        Hex       Used for
+  ------------ --------- -------------------------------------------
+  Background   #1c2433   Main editor background
+  Blue         #69C3FF   Functions, tags, titles, info diagnostics
+  Green        #3CEC85   Strings, characters, added diffs
+  Yellow       #EACD61   Keywords, operators, statements
+  Red          #E35535   Constants, numbers, booleans, errors
+  Cyan         #22ECDB   Storage class, search, special
+  Purple       #B78AFF   Types, structures, typedefs
+  Magenta      #F38CEC   Parameters
+  Orange       #FF955C   Warnings, debug
+  Pink         #FF738A   Variables, labels, special chars
+See Palette docs <doc/Palette.md> for the full reference including all
+background shades, semantic colors, and terminal colors.
 
 
 REQUIREMENTS                       *bearded-arc-bearded-arc.nvim-requirements*
@@ -57,6 +82,25 @@ REQUIREMENTS                       *bearded-arc-bearded-arc.nvim-requirements*
 
 
 INSTALLATION                       *bearded-arc-bearded-arc.nvim-installation*
+
+
+VIM.PACK (NEOVIM 0.11+ BUILT-IN) ~
+
+>lua
+    vim.pack.add({ 'https://github.com/kcayme/bearded-arc.nvim' })
+    vim.cmd.colorscheme("bearded-arc")
+<
+
+Since `vim.pack` doesn’t use lazy.nvim, plugin auto-detection won’t work.
+Enable all plugin highlights or specify them manually:
+
+>lua
+    require("bearded-arc").setup({
+      plugins = {
+        all = true, -- load all 71 plugin highlight groups
+      },
+    })
+<
 
 
 LAZY.NVIM ~
@@ -85,15 +129,6 @@ USAGE                                     *bearded-arc-bearded-arc.nvim-usage*
 <
 
 
-HELP                                       *bearded-arc-bearded-arc.nvim-help*
-
-Full documentation is available inside Neovim:
-
->vim
-    :h bearded-arc
-<
-
-
 CONFIGURATION                     *bearded-arc-bearded-arc.nvim-configuration*
 
 Configuration is optional. Call `setup` before loading the colorscheme to
@@ -105,11 +140,13 @@ override defaults:
       terminal_colors = true,    -- apply ANSI terminal colors
       dim_inactive = false,      -- dim inactive windows
       styles = {
-        comments = { italic = true },
-        keywords = {},
+        comments  = { italic = true },
+        keywords  = {},
         functions = {},
         variables = {},
-        strings = {},
+        strings   = {},
+        sidebars  = "dark",      -- "dark" | "transparent" | "normal"
+        floats    = "dark",      -- "dark" | "transparent" | "normal"
       },
       on_colors = function(colors)
         -- override palette colors
@@ -127,6 +164,18 @@ override defaults:
         -- gitsigns = false,
       },
     })
+<
+
+See Configuration docs <doc/Configuration.md> for all options and Recipes
+<doc/Recipes.md> for common customization examples.
+
+
+HELP                                       *bearded-arc-bearded-arc.nvim-help*
+
+Full documentation is available inside Neovim:
+
+>vim
+    :h bearded-arc
 <
 
 
@@ -207,9 +256,14 @@ STYLES ~
   Type      table
   Default   See below
   --------- -----------
-Controls font attributes for common syntax categories. Each key accepts a table
-of highlight attributes such as `italic`, `bold`, `underline`, `undercurl`,
-`strikethrough`, and `sp`.
+Controls font attributes for common syntax categories and background style for
+sidebars and floating windows.
+
+
+FONT STYLES
+
+Each font key accepts a table of highlight attributes such as `italic`, `bold`,
+`underline`, `undercurl`, `strikethrough`, and `sp`.
 
 >lua
     -- defaults
@@ -246,6 +300,52 @@ These are merged into the corresponding base highlight groups using
   functions   Function
   variables   Identifier
   strings     String
+
+STYLES.SIDEBARS
+
+  --------- -------------------------------------
+  Type      "dark" \| "transparent" \| "normal"
+  Default   "dark"
+  --------- -------------------------------------
+Controls the background color of sidebar-style windows (file explorers,
+outlines, etc.):
+
+  Value           Background
+  --------------- ----------------------------------------------------
+  "dark"          #171e2b — slightly darker than the main background
+  "normal"        #1c2433 — same as the main background
+  "transparent"   no background (inherits terminal background)
+>lua
+    require("bearded-arc").setup({
+      styles = {
+        sidebars = "normal", -- blend sidebars with the main editor
+      },
+    })
+<
+
+
+STYLES.FLOATS
+
+  --------- -------------------------------------
+  Type      "dark" \| "transparent" \| "normal"
+  Default   "dark"
+  --------- -------------------------------------
+Controls the background color of floating windows (hover docs, diagnostics,
+pickers, etc.):
+
+  Value           Background
+  --------------- ----------------------------------------------------
+  "dark"          #1a2130 — slightly darker than the main background
+  "normal"        #1c2433 — same as the main background
+  "transparent"   no background (inherits terminal background)
+>lua
+    require("bearded-arc").setup({
+      styles = {
+        floats = "transparent",
+      },
+    })
+<
+
 
 ON_COLORS ~
 
@@ -353,11 +453,13 @@ FULL DEFAULT CONFIGURATION*bearded-arc-configuration-full-default-configuration*
       terminal_colors = true,
       dim_inactive = false,
       styles = {
-        comments = { italic = true },
-        keywords = {},
+        comments  = { italic = true },
+        keywords  = {},
         functions = {},
         variables = {},
-        strings = {},
+        strings   = {},
+        sidebars  = "dark",  -- "dark" | "transparent" | "normal"
+        floats    = "dark",  -- "dark" | "transparent" | "normal"
       },
       on_colors = function(colors) end,
       on_highlights = function(highlights, colors) end,
@@ -665,8 +767,8 @@ AVAILABLE COLORS ~
 
 1. *Neovim*: https://img.shields.io/badge/Neovim-%3E%3D0.8.0-57A143?logo=neovim&logoColor=white
 2. *License*: https://img.shields.io/github/license/kcayme/bearded-arc.nvim
-3. *JSX*: ./assets/sample_1.png
-4. *Go*: ./assets/sample_2.png
+3. *JSX syntax highlighting in bearded-arc.nvim Neovim colorscheme*: ./assets/sample_1.png
+4. *Go syntax highlighting in bearded-arc.nvim Neovim colorscheme*: ./assets/sample_2.png
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 
