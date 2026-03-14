@@ -67,7 +67,11 @@ require("bearded-arc").setup({
 | Type | `table` |
 | Default | See below |
 
-Controls font attributes for common syntax categories. Each key accepts a table of highlight attributes such as `italic`, `bold`, `underline`, `undercurl`, `strikethrough`, and `sp`.
+Controls font attributes for common syntax categories and background style for sidebars and floating windows.
+
+#### Font styles
+
+Each font key accepts a table of highlight attributes such as `italic`, `bold`, `underline`, `undercurl`, `strikethrough`, and `sp`.
 
 ```lua
 -- defaults
@@ -103,6 +107,52 @@ require("bearded-arc").setup({
 | `functions` | `Function` |
 | `variables` | `Identifier` |
 | `strings` | `String` |
+
+#### `styles.sidebars`
+
+| | |
+| --- | --- |
+| Type | `"dark" \| "transparent" \| "normal"` |
+| Default | `"dark"` |
+
+Controls the background color of sidebar-style windows (file explorers, outlines, etc.):
+
+| Value | Background |
+| --- | --- |
+| `"dark"` | `#171e2b` — slightly darker than the main background |
+| `"normal"` | `#1c2433` — same as the main background |
+| `"transparent"` | no background (inherits terminal background) |
+
+```lua
+require("bearded-arc").setup({
+  styles = {
+    sidebars = "normal", -- blend sidebars with the main editor
+  },
+})
+```
+
+#### `styles.floats`
+
+| | |
+| --- | --- |
+| Type | `"dark" \| "transparent" \| "normal"` |
+| Default | `"dark"` |
+
+Controls the background color of floating windows (hover docs, diagnostics, pickers, etc.):
+
+| Value | Background |
+| --- | --- |
+| `"dark"` | `#1a2130` — slightly darker than the main background |
+| `"normal"` | `#1c2433` — same as the main background |
+| `"transparent"` | no background (inherits terminal background) |
+
+```lua
+require("bearded-arc").setup({
+  styles = {
+    floats = "transparent",
+  },
+})
+```
 
 ### `on_colors`
 
@@ -187,11 +237,13 @@ require("bearded-arc").setup({
   terminal_colors = true,
   dim_inactive = false,
   styles = {
-    comments = { italic = true },
-    keywords = {},
+    comments  = { italic = true },
+    keywords  = {},
     functions = {},
     variables = {},
-    strings = {},
+    strings   = {},
+    sidebars  = "dark",  -- "dark" | "transparent" | "normal"
+    floats    = "dark",  -- "dark" | "transparent" | "normal"
   },
   on_colors = function(colors) end,
   on_highlights = function(highlights, colors) end,
