@@ -146,8 +146,43 @@ Palette changes in `palette.lua` cascade across every highlight group. These are
 - No external dependencies — the colorscheme is self-contained
 - Each plugin file exports a single `get(c, opts)` function
 - Highlight groups are sorted alphabetically within each file
-- Use the palette colors directly — avoid hardcoding hex values in group files
 - Keep files focused: one plugin per file, no shared state between plugin modules
+
+### No Hardcoded Hex Values
+
+Never use literal hex values (e.g. `"#1a2b3c"`) in group files. All colors must come from the palette or be derived using `util`.
+
+**Use palette colors directly:**
+
+```lua
+-- good
+PluginNormal = { bg = c.bg_highlight }
+
+-- bad
+PluginNormal = { bg = "#263042" }
+```
+
+**Derive subtle tinted backgrounds with `util.darken`:**
+
+```lua
+local util = require("bearded-arc.util")
+
+-- good — derives from palette, adapts if palette changes
+DiffAdd = { bg = util.darken(c.green, 0.85, c.bg) }
+
+-- bad
+DiffAdd = { bg = "#192d24" }
+```
+
+`util` provides three helpers:
+
+| Function | Description |
+|---|---|
+| `util.blend(fg, bg, alpha)` | Alpha-blend two colors (`alpha` 0.0–1.0, 1.0 = full `fg`) |
+| `util.darken(hex, amount, bg)` | Blend `hex` toward `bg` (or black) by `amount` |
+| `util.lighten(hex, amount, fg)` | Blend `hex` toward `fg` (or white) by `amount` |
+
+For line-level diff/git backgrounds, `darken(color, 0.90, c.bg)` is a good starting point. Adjust the amount to taste — use `:Inspect` to verify the result looks right.
 
 ## Commit Messages
 
