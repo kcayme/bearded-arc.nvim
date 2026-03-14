@@ -1,3 +1,5 @@
+local util = require("bearded-arc.util")
+
 local M = {}
 
 function M.get(c, opts)
@@ -129,10 +131,10 @@ function M.get(c, opts)
     LspInfoBorder = { fg = c.fg_gutter, bg = c.float_bg },
 
     -- Diff
-    DiffAdd = { bg = "#192d24" },
-    DiffChange = { bg = "#242833" },
-    DiffDelete = { bg = "#351c22" },
-    DiffText = { bg = "#334559" },
+    DiffAdd = { bg = util.darken(c.green, 0.85, c.bg) },
+    DiffChange = { bg = util.darken(c.yellow, 0.85, c.bg) },
+    DiffDelete = { bg = util.darken(c.red, 0.85, c.bg) },
+    DiffText = { bg = util.darken(c.yellow, 0.70, c.bg) },
     diffAdded = { fg = c.green },
     diffChanged = { fg = c.yellow },
     diffRemoved = { fg = c.red },

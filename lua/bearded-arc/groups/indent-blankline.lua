@@ -2,9 +2,9 @@ local M = {}
 
 function M.get(c, opts)
   return {
-    IblIndent = { fg = "#263042", nocombine = true },
+    IblIndent = { fg = c.bg_highlight, nocombine = true },
     IblScope = { fg = c.white, nocombine = true },
-    IblWhitespace = { fg = "#263042", nocombine = true },
+    IblWhitespace = { fg = c.bg_highlight, nocombine = true },
   }
 end
 

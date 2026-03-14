@@ -1,11 +1,13 @@
+local util = require("bearded-arc.util")
+
 local M = {}
 
 function M.get(c, opts)
   return {
     diffOldFile = { fg = c.pink },
     diffNewFile = { fg = c.blue },
-    DiffChangeDelete = { bg = "#351c22", fg = c.red },
-    DiffModified = { bg = "#242833", fg = c.orange },
+    DiffChangeDelete = { bg = util.darken(c.red, 0.85, c.bg), fg = c.red },
+    DiffModified = { bg = util.darken(c.yellow, 0.85, c.bg), fg = c.orange },
 
     gitcommitOverflow = { fg = c.pink },
     gitcommitSummary = { fg = c.green },

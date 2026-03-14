@@ -31,7 +31,7 @@ function M.get(c, opts)
     SnacksPickerList = { bg = c.float_bg },
     SnacksPickerListBorder = { fg = c.fg_dim, bg = c.float_bg },
     SnacksPickerListTitle = { fg = c.blue, bold = true },
-    SnacksIndent = { fg = "#263042", nocombine = true },
+    SnacksIndent = { fg = c.bg_highlight, nocombine = true },
     SnacksIndentScope = { fg = c.white, nocombine = true },
   }
 end
