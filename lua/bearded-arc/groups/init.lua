@@ -10,6 +10,7 @@ M.plugins = {
   ["blink.cmp"] = "blink",
   ["bufferline.nvim"] = "bufferline",
   ["coc.nvim"] = "coc",
+  ["codediff.nvim"] = "codediff",
   ["codeium.nvim"] = "codeium",
   ["colorful-winsep.nvim"] = "colorful-winsep",
   ["copilot.vim"] = "copilot",
