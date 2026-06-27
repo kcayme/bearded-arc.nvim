@@ -34,6 +34,16 @@ function M.get(c, opts)
     PmenuSel = { bg = c.bg_visual },
     PmenuSbar = { bg = c.bg_popup },
     PmenuThumb = { bg = c.fg_gutter },
+    PmenuMatch = { fg = c.cyan, bg = c.bg_popup, bold = true },
+    PmenuMatchSel = { fg = c.cyan, bg = c.bg_visual, bold = true },
+    PmenuKind = { fg = c.purple, bg = c.bg_popup },
+    PmenuKindSel = { fg = c.purple, bg = c.bg_visual },
+    PmenuExtra = { fg = c.fg_dim, bg = c.bg_popup },
+    PmenuExtraSel = { fg = c.fg_dim, bg = c.bg_visual },
+    ComplMatchIns = { fg = c.cyan },
+    TabPanel = { fg = c.fg_dim, bg = c.bg_dark },
+    TabPanelFill = { bg = c.bg_darker },
+    TabPanelSel = { fg = c.fg, bg = c.bg, bold = true },
     FloatBorder = { fg = c.fg_gutter, bg = c.float_bg },
     FloatTitle = { fg = c.blue, bg = c.float_bg },
     WildMenu = { fg = c.fg, bg = c.bg_visual },
@@ -122,6 +132,8 @@ function M.get(c, opts)
     DiagnosticSignWarn = { fg = c.warning },
     DiagnosticSignInfo = { fg = c.info },
     DiagnosticSignHint = { fg = c.hint },
+    DiagnosticUnnecessary = { fg = c.fg_dim },
+    DiagnosticDeprecated = { fg = c.fg_dim, strikethrough = true, sp = c.warning },
 
     -- LSP
     LspReferenceText = { bg = c.bg_highlight },
@@ -129,6 +141,9 @@ function M.get(c, opts)
     LspReferenceWrite = { bg = c.bg_highlight },
     LspSignatureActiveParameter = { fg = c.orange, bold = true },
     LspInfoBorder = { fg = c.fg_gutter, bg = c.float_bg },
+    LspInlayHint = { fg = c.fg_dim, bg = c.bg_highlight, italic = true },
+    SnippetTabstop = { bg = c.bg_visual },
+    SnippetTabstopActive = { bg = c.bg_visual, bold = true, underline = true, sp = c.cyan },
 
     -- Diff
     DiffAdd = { bg = util.darken(c.green, 0.85, c.bg) },
