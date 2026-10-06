@@ -3,7 +3,7 @@
 [![Neovim](https://img.shields.io/badge/Neovim-%3E%3D0.8.0-57A143?logo=neovim&logoColor=white)](https://neovim.io)
 [![License](https://img.shields.io/github/license/kcayme/bearded-arc.nvim)](https://github.com/kcayme/bearded-arc.nvim/blob/main/LICENSE)
 
-A dark Neovim colorscheme inspired by [Bearded Theme Arc](https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedtheme) for VSCode. Deep navy backgrounds with vivid accent colors — full Treesitter, LSP semantic token support, and 71 plugin integrations.
+A dark Neovim colorscheme inspired by [Bearded Theme Arc](https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedtheme) for VSCode. Deep navy backgrounds with vivid accent colors.
 
 ![JSX syntax highlighting in bearded-arc.nvim Neovim colorscheme](./assets/sample_1.png)
 ![Go syntax highlighting in bearded-arc.nvim Neovim colorscheme](./assets/sample_2.png)
