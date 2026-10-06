@@ -1,4 +1,5 @@
-*bearded-arc.txt*A dark Neovim colorscheme based on the Bearded Theme Arc variant
+*bearded-arc.txt* A dark Neovim colorscheme based on the Bearded Theme Arc variant
+                               For NVIM v0.8.0    Last change: 2026 October 06
 
 ==============================================================================
 Table of Contents                              *bearded-arc-table-of-contents*
@@ -38,8 +39,7 @@ Table of Contents                              *bearded-arc-table-of-contents*
 
 A dark Neovim colorscheme inspired by Bearded Theme Arc
 <https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedtheme>
-for VSCode. Deep navy backgrounds with vivid accent colors — full Treesitter,
-LSP semantic token support, and 71 plugin integrations.
+for VSCode. Deep navy backgrounds with vivid accent colors.
 
 
 
@@ -682,7 +682,7 @@ STATUSLINE (LUALINE.NVIM) ~
 
 >lua
     local c = require("bearded-arc").palette()
-    
+
     require("lualine").setup({
       options = {
         theme = {
@@ -710,7 +710,7 @@ STATUSLINE (HEIRLINE.NVIM) ~
 
 >lua
     local c = require("bearded-arc").palette()
-    
+
     local colors = {
       bg = c.bg_status,
       fg = c.fg,
@@ -721,7 +721,7 @@ STATUSLINE (HEIRLINE.NVIM) ~
       purple = c.purple,
       muted = c.fg_dim,
     }
-    
+
     require("heirline").setup({
       opts = { colors = colors },
       -- ...
@@ -733,12 +733,12 @@ INDENT LINE COLOR ~
 
 >lua
     local c = require("bearded-arc").palette()
-    
+
     require("ibl").setup({
       indent = { char = "│", highlight = "IblIndent" },
       scope = { highlight = "IblScope" },
     })
-    
+
     vim.api.nvim_set_hl(0, "IblIndent", { fg = c.bg_popup })
     vim.api.nvim_set_hl(0, "IblScope", { fg = c.fg_dim })
 <
