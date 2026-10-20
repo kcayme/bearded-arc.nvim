@@ -16,7 +16,7 @@ function M.get(c, opts)
 
     -- UI & layout
     CodeDiffExplorerSelected = { bg = c.bg_highlight, fg = c.fg },
-    CodeDiffFiller = { bg = c.bg_dark },
+    CodeDiffFiller = { bg = c.bg_highlight },
 
     -- History
     CodeDiffHistoryTitle = { fg = c.blue, bold = true },
