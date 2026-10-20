@@ -13,6 +13,8 @@ function M.get(c, opts)
     CodeDiffLineMove = { bg = util.darken(c.blue, 0.90, c.bg) },
     CodeDiffMoveFrom = { bg = util.darken(c.purple, 0.90, c.bg) },
     CodeDiffMoveTo = { bg = util.darken(c.cyan, 0.90, c.bg) },
+    CodeDiffGutterInsertNumber = { fg = c.green },
+    CodeDiffGutterDeleteNumber = { fg = c.red },
 
     -- UI & layout
     CodeDiffExplorerSelected = { bg = c.bg_highlight, fg = c.fg },
