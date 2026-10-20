@@ -5,9 +5,9 @@ local M = {}
 function M.get(c, opts)
   return {
     -- Core diff highlights
-    CodeDiffCharDelete = { bg = util.darken(c.red, 0.75, c.bg) },
-    CodeDiffCharInsert = { bg = util.darken(c.green, 0.75, c.bg) },
-    CodeDiffCharMove = { bg = util.darken(c.blue, 0.75, c.bg) },
+    CodeDiffCharDelete = { bg = util.darken(c.red, 0.55, c.bg) },
+    CodeDiffCharInsert = { bg = util.darken(c.green, 0.55, c.bg) },
+    CodeDiffCharMove = { bg = util.darken(c.blue, 0.55, c.bg) },
     CodeDiffLineDelete = { bg = util.darken(c.red, 0.90, c.bg) },
     CodeDiffLineInsert = { bg = util.darken(c.green, 0.90, c.bg) },
     CodeDiffLineMove = { bg = util.darken(c.blue, 0.90, c.bg) },
